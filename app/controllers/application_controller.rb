@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
       current_user.update(balance: new_balance)
       redirect '/account'
     else
-      'Withdraw requests exceeds your balance!'
+      'Withdraw request exceeds your balance.'
     end
   end
 
