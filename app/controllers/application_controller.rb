@@ -53,16 +53,14 @@ class ApplicationController < Sinatra::Base
     erb :withdraw
   end
 
-
   get "/login" do
     erb :login
   end
 
   post "/login" do
-
     if params[:username].empty? || params[:password].empty?
       redirect to '/failure'
-    else
+      else
       user = User.find_by(username: params[:username])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
